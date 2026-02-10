@@ -276,5 +276,152 @@ public class MyTestClass {
     
     \textbf{Hasil:} Kedua test method berhasil dijalankan dengan ditandai oleh green bar pada IDE. Output console menampilkan pesan dari masing-masing test method sesuai dengan yang diharapkan.
 \end{enumerate}
+\section{Assertion}
+\begin{enumerate}
+    \item Buatlah sebuah project baru dengan nama "Wallet" dengan Build System Maven, dan JUnit.
+    \item Buatlah sebuah class bernama "Wallet" dengan atribut: owner, cards, totalMoney. Lalu buatlah methods untuk menambahkan kartu, mengambil kartu, menambahkan uang rupiah, mengambil uang, menampilkan jumlah uang yang ada di dompet. Berikut adalah contoh implementasi class Wallet:
+\begin{lstlisting}[style=javastyle,caption=Class Wallet Sederhana]
+// location: src/main/java/Wallet.java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Wallet {
+    private String owner;
+    private List<String> cards;
+    private int totalMoney;
+
+    public Wallet() {
+        this.cards = new ArrayList<>();
+        this.totalMoney = 0;
+    }
+
+    // set & get owner
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    // kartu
+    public void addCard(String card) {
+        cards.add(card);
+    }
+
+    public String takeCard(String card) {
+        if (cards.contains(card)) {
+            cards.remove(card);
+            return card;
+        }
+        return null;
+    }
+
+    public List<String> getCards() {
+        return cards;
+    }
+
+    // uang
+    public void addMoney(int amount) {
+        if (amount > 0) {
+            totalMoney += amount;
+        }
+    }
+
+    public boolean takeMoney(int amount) {
+        if (amount > 0 && totalMoney >= amount) {
+            totalMoney -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public int getTotalMoney() {
+        return totalMoney;
+    }
+
+}
+\end{lstlisting}
+    \item Buat unit test untuk class Wallet dengan menggunakan berbagai macam assertion seperti berikut: 
+\begin{lstlisting}[style=javastyle,caption=Class Test Wallet]
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class WalletTest {
+
+    Wallet wallet;
+
+    @BeforeEach
+    void setup() {
+        wallet = new Wallet();
+        wallet.setOwner("Janu");
+    }
+
+    @Test
+    void testSetOwner() {
+        assertEquals("Janu", wallet.getOwner());
+    }
+
+    @Test
+    void testAddCard() {
+        wallet.addCard("KTP");
+        wallet.addCard("ATM");
+
+        assertEquals(2, wallet.getCards().size());
+        assertTrue(wallet.getCards().contains("KTP"));
+    }
+
+    @Test
+    void testTakeCard() {
+        wallet.addCard("SIM");
+        String card = wallet.takeCard("SIM");
+
+        assertNotNull(card);
+        assertFalse(wallet.getCards().contains("SIM"));
+    }
+
+    @Test
+    void testAddMoney() {
+        wallet.addMoney(50000);
+        wallet.addMoney(25000);
+
+        assertEquals(75000, wallet.getTotalMoney());
+    }
+
+    @Test
+    void testTakeMoney() {
+        wallet.addMoney(100000);
+        boolean result = wallet.takeMoney(40000);
+
+        assertTrue(result);
+        assertEquals(60000, wallet.getTotalMoney());
+    }
+
+    @Test
+    void testWalletSummary() {
+        wallet.addCard("ATM");
+        wallet.addMoney(50000);
+
+        assertAll(
+                () -> assertEquals("Janu", wallet.getOwner()),
+                () -> assertEquals(1, wallet.getCards().size()),
+                () -> assertEquals(50000, wallet.getTotalMoney())
+        );
+    }
+}
+\end{lstlisting}
+    \item Jalankan class test untuk memastikan bahwa semua metode pada class Wallet telah diuji dengan benar.
+    \item Jika semua langkah di atas dilakukan dengan benar, maka hasil dari unit test akan menunjukkan bahwa semua test berhasil (green bar) seperti gambar berikut:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{wallettest.png}
+        \caption{Hasil Unit Test Wallet Berhasil}
+    \end{figure}
+\end{enumerate}
+\section*{Resources}
+\url{https://github.com/januarsyah901/PPPL/tree/main/Pertemuan%201}
 \chapter{Kesimpulan}
+Dengan mempelajari dan mengimplementasikan unit test serta assertion menggunakan JUnit, mahasiswa dapat memahami pentingnya pengujian perangkat lunak dalam memastikan kualitas kode. Unit test membantu mendeteksi kesalahan lebih awal dalam proses pengembangan, sehingga meminimalkan risiko bug di kemudian hari. Selain itu, penggunaan assertion memungkinkan verifikasi hasil yang lebih akurat, memastikan bahwa fungsi-fungsi berjalan sesuai dengan yang diharapkan. Praktikum ini memberikan pengalaman praktis dalam menulis dan menjalankan unit test, yang merupakan keterampilan penting bagi pengembang perangkat lunak profesional.
 \end{document}  

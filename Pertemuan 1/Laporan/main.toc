@@ -4,4 +4,5 @@
 \contentsline {section}{\numberline {2.2}Assertion}{5}{section.2.2}%
 \contentsline {chapter}{\numberline {3}Tugas Praktikum}{8}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Unit Test}{8}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Kesimpulan}{10}{chapter.4}%
+\contentsline {section}{\numberline {3.2}Assertion}{9}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Kesimpulan}{13}{chapter.4}%

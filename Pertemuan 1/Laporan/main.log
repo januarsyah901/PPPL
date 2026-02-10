@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.29)  10 FEB 2026 15:17
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.29)  10 FEB 2026 15:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -394,10 +394,19 @@ File: testmethod.png Graphic file (type bmp)
 ]
 
 [9]
+
+[10]
+File: wallettest.png Graphic file (type bmp)
+<wallettest.png>
+
+
+[11]
+
+[12]
 Chapter 4.
 
 
-[10
+[13
 
 ] (./main.aux)
  ***********
@@ -405,15 +414,15 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3DFC1284E956116F1FF9611303F39B75;774.
+(rerunfilecheck)             Checksum: 36905E5166E97D927DEEA3D62D46C86D;873.
  ) 
 Here is how much of TeX's memory you used:
- 10792 strings out of 469923
- 167520 string characters out of 5473478
- 939273 words of memory out of 5000000
- 39077 multiletter control sequences out of 15000+600000
+ 10837 strings out of 469923
+ 168173 string characters out of 5473478
+ 1076273 words of memory out of 5000000
+ 39121 multiletter control sequences out of 15000+600000
  630940 words of font info for 65 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 72i,5n,79p,308b,1294s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,6n,79p,713b,1899s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (11 pages).
+Output written on main.pdf (14 pages).
