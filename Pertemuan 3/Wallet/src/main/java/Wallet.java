@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wallet {
-    private String owner;
+    private Owner owner;
     private List<String> cards;
     private int totalMoney;
 
@@ -12,11 +12,11 @@ public class Wallet {
     }
 
     // set & get owner
-    public void setOwner(String owner) {
+    public void setOwner(Owner owner) {
         this.owner = owner;
     }
 
-    public String getOwner() {
+    public Owner getOwner() {
         return owner;
     }
 
@@ -38,18 +38,31 @@ public class Wallet {
     }
 
     // uang
-    public void addMoney(int amount) {
+    public void deposit(int amount) {
         if (amount > 0) {
             totalMoney += amount;
         }
     }
 
-    public boolean takeMoney(int amount) {
-        if (amount > 0 && totalMoney >= amount) {
-            totalMoney -= amount;
-            return true;
+    public boolean withdraw(int amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Amount cannot be negative");
         }
+        if (amount > totalMoney) {
+            throw new InsufficientFundsException("Amount cannot be greater than total money");
+        }
+        if (amount == 0) {
+            throw new IllegalArgumentException("Amount cannot be zero");
+        }
+        totalMoney -= amount;
         return false;
+    }
+
+    public boolean validBalance(int amount) {
+        if (amount < 0) {
+            return false;
+        }
+        return true;
     }
 
     public int getTotalMoney() {
