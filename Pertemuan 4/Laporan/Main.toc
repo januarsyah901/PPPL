@@ -1,0 +1,13 @@
+\contentsline {chapter}{Daftar Isi}{2}{Doc-Start}%
+\contentsline {chapter}{\numberline {}Tujuan Praktikum}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {}\renewcommand {\cftchapfont }{\bfseries }Hasil dan Pembahasan\renewcommand {\cftchapfont }{}}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Percobaan Latihan Praktikum}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Pengujian Method \texttt {checkEven} dengan \texttt {@ValueSource}}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Pengujian Method \texttt {tambah} dengan \texttt {@CsvSource}}{5}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Pengujian Method \texttt {kurang} dengan \texttt {@MethodSource}}{6}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Tugas dan Analisis Praktikum}{7}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Validasi Nominal Cash dengan Single-value Parameter}{7}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Pengujian Transaksi Withdraw untuk Data Valid dan Invalid}{8}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Implementasi Owner sebagai Object dan Pengujian MethodSource}{10}{subsection.2.2.3}%
+\contentsline {chapter}{\numberline {}Resource}{12}{chapter.3}%
+\contentsline {chapter}{\numberline {}Kesimpulan}{13}{chapter.4}%
