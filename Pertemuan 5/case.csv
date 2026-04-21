@@ -1,0 +1,21 @@
+Title,Section,Preconditions,Steps,Expected Results,Type,Priority,Estimate,References,Custom Tags
+Ganti Nama Bengkel - Mengubah info nama bengkel di Settings,Modul Pengaturan & Karyawan/Master Data,Menu Pengaturan terbuka,"1. Buka menu Pengaturan
+2. Klik opsi 'Info Bengkel'
+3. Ubah nama bengkel
+4. Klik 'Simpan'","1. Form pengaturan terbuka
+2. Form edit info bengkel terbuka
+3. Nama berhasil diubah
+4. Notifikasi sukses muncul","Functional Test","Medium","5 min","QC-001","Pengaturan & Karyawan;Normal;Ganti Nama Bengkel"
+Tambah Mekanik - Input data mekanik baru,Modul Pengaturan & Karyawan/Master Data,Menu Karyawan terbuka,"1. Buka menu Karyawan
+2. Klik 'Tambah Mekanik'
+3. Isi data mekanik (nama, no telepon, alamat)
+4. Klik 'Simpan'","1. Form tambah mekanik terbuka
+2. Data diisi
+3. Data tersimpan
+4. Nama mekanik muncul di dropdown Antrean","Functional Test","High","5 min","QC-002","Pengaturan & Karyawan;Normal;Tambah Mekanik"
+Role Permission - Login sebagai Kasir (Non-Admin),Modul Pengaturan & Karyawan/Security,"1. Akun Kasir dibuat
+2. Akun Admin tersedia untuk verifikasi","1. Login dengan akun Kasir (non-admin)
+2. Buka menu Laporan
+3. Coba akses fitur Hapus Data","1. Login berhasil
+2. Menu Laporan terbuka tetapi tombol 'Hapus Data' tidak ada/tidak aktif
+3. Muncul notifikasi akses ditolak","Security Test","Critical","10 min","QC-003","Pengaturan & Karyawan;Normal;Role Permission"

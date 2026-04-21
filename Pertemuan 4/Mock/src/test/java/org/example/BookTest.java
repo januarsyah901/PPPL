@@ -23,7 +23,7 @@ public class BookTest {
     private NotificationService notificationService; // Ini adalah Mock (untuk verifikasi interaksi)
 
     @InjectMocks
-    private BookController bookController;  
+    private BookController bookController;
 
     @Test
     void testCheckAvailability_Success() {

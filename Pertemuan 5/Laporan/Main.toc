@@ -1,0 +1,20 @@
+\contentsline {chapter}{Daftar Isi}{2}{Doc-Start}%
+\contentsline {chapter}{\numberline {}Tujuan Praktikum}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {}\renewcommand {\cftchapfont }{\bfseries }Hasil dan Pembahasan\renewcommand {\cftchapfont }{}}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Tugas}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Langkah 1: Membuat Project Baru}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Langkah 2: Membuat Test Suite}{4}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Langkah 3: Membuat Test Case}{5}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Langkah 4: Menampilkan Seluruh Test Case}{6}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Langkah 5: Mengubah/Mengedit Test Case}{6}{subsection.2.1.5}%
+\contentsline {subsection}{\numberline {2.1.6}Langkah 6: Membuat Shared Step}{7}{subsection.2.1.6}%
+\contentsline {subsection}{\numberline {2.1.7}Langkah 7: Konfigurasi Shared Step ke Test Case}{8}{subsection.2.1.7}%
+\contentsline {subsection}{\numberline {2.1.8}Langkah 8: Membuat Environment}{8}{subsection.2.1.8}%
+\contentsline {subsection}{\numberline {2.1.9}Langkah 9: Membuat Test Plan}{9}{subsection.2.1.9}%
+\contentsline {subsection}{\numberline {2.1.10}Langkah 10: Membuat Test Run Baru}{10}{subsection.2.1.10}%
+\contentsline {subsection}{\numberline {2.1.11}Langkah 11: Menjalankan Test Run}{10}{subsection.2.1.11}%
+\contentsline {subsection}{\numberline {2.1.12}Langkah 12: Membuat Bug Report}{11}{subsection.2.1.12}%
+\contentsline {subsection}{\numberline {2.1.13}Langkah 13: Melihat Daftar Defect}{12}{subsection.2.1.13}%
+\contentsline {chapter}{\numberline {}Resources}{13}{chapter.3}%
+\contentsline {chapter}{\numberline {}Kesimpulan}{14}{chapter.4}%
+\contentsline {chapter}{Daftar Pustaka}{15}{chapter.4}%

@@ -1,0 +1,5 @@
+suite_id,title,description,parent_id
+,"Pengaturan & Karyawan","Test cases untuk modul Pengaturan & Karyawan",
+,"Ganti Nama Bengkel","Sub-suite untuk test case Ganti Nama Bengkel",Pengaturan & Karyawan
+,"Tambah Mekanik","Sub-suite untuk test case Tambah Mekanik",Pengaturan & Karyawan
+,"Role Permission","Sub-suite untuk test case Role Permission",Pengaturan & Karyawan
