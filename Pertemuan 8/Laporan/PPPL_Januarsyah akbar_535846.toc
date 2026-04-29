@@ -2,5 +2,5 @@
 \contentsline {chapter}{\numberline {}Tujuan Praktikum}{3}{chapter.1}%
 \contentsline {chapter}{\numberline {}\renewcommand {\cftchapfont }{\bfseries }Hasil dan Pembahasan\renewcommand {\cftchapfont }{}}{4}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Tugas}{4}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Pengujian Login SauceDemo Sederhana (\texttt {SauceDemoLoginTest.java})}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.1}Pengujian Login SauceDemo Sederhana}{4}{subsection.2.1.1}%
 \contentsline {chapter}{\numberline {}Kesimpulan}{9}{chapter.3}%
