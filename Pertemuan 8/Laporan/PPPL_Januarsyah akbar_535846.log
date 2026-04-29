@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.11)  29 APR 2026 20:17
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.11)  29 APR 2026 20:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -393,74 +393,4 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ] (./PPPL_Januarsyah akbar_535846.toc
 Underfull \hbox (badness 10000) in paragraph at lines 5--5
- [][] [][][]\TU/lmr/m/n/12 Pengujian Login SauceDemo Sederhana 
- []
-
-)
-\tf@toc=\write3
-\openout3 = `"PPPL_Januarsyah akbar_535846.toc"'.
-
- [2
-
-
-]
- .
-
-Underfull \hbox (badness 2245) in paragraph at lines 248--249
-[]\TU/lmr/m/n/12 Mahasiswa mampu mengimplementasikan pencarian elemen menggunakan
- []
-
-[3
-
-
-]
- .
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 274.
-
-Underfull \hbox (badness 10000) in paragraph at lines 274--274
-[]\TU/lmr/bx/n/14.4 Pengujian Login SauceDemo Sederhana
- []
-
-(/usr/local/texlive/2026basic/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 280.
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 281.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 281.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 281.
- [4
-
-
-] [5]
-File: screenshot step/xpath.png Graphic file (type bmp)
-<screenshot step/xpath.png>
- [6]
-File: screenshot step/logintest.png Graphic file (type bmp)
-<screenshot step/logintest.png>
-File: screenshot step/sauceinventory.png Graphic file (type bmp)
-<screenshot step/sauceinventory.png>
- [7] [8]
- .
-[9
-
-
-] (./PPPL_Januarsyah akbar_535846.aux)
- ***********
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
- ***********
- ) 
-Here is how much of TeX's memory you used:
- 11747 strings out of 469709
- 183016 string characters out of 5466023
- 1146514 words of memory out of 5000000
- 40247 multiletter control sequences out of 15000+600000
- 630937 words of font info for 65 fonts, out of 8000000 for 9000
- 319 hyphenation exceptions out of 8191
- 72i,12n,79p,611b,1836s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-Output written on PPPL_Januarsyah akbar_535846.pdf (9 pages).
+ [][] [][][]\TU/lmr/m/n/1
