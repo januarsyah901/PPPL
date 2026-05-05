@@ -1,0 +1,404 @@
+\documentclass[a4paper,oneside,12pt]{report}
+% Package yang diperlukan
+\usepackage{graphicx}      % Untuk memasukkan gambar
+\usepackage{geometry}      % Untuk mengatur margin halaman
+\usepackage{listings}      % Untuk menampilkan blok kode
+\usepackage{xcolor}        % Untuk menggunakan warna
+\usepackage{float}         % Untuk kontrol penempatan float (seperti gambar)
+\usepackage{hyperref}      % Untuk membuat hyperlink (URL, referensi)
+\usepackage{natbib}        % Untuk citation dengan \cite{} yang clickable
+\usepackage{indentfirst}   % Untuk memberi indentasi pada paragraf pertama setiap seksi
+\usepackage{url}           % Untuk format URL
+\usepackage{fancyhdr}      % Untuk kustomisasi header dan footer
+\usepackage{tocloft}       % Untuk kustomisasi Daftar Isi
+\usepackage{bookmark}      % Untuk manajemen bookmark PDF yang lebih baik
+
+%======================================================================
+% PENGATURAN GEOMETRI HALAMAN
+%======================================================================
+% Margin umum untuk isi laporan
+\geometry{left=3cm, right=2.5cm, top=2cm, bottom=2.5cm}
+\sloppy
+
+%======================================================================
+% PENGATURAN WARNA UNTUK BLOK KODE
+%======================================================================
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{darkblue}{rgb}{0,0,0.6}
+
+%======================================================================
+% PENGATURAN BLOK KODE (LISTINGS)
+%======================================================================
+% Gaya umum untuk semua blok kode
+\lstdefinestyle{commonstyle}{
+    backgroundcolor=\color{backcolour}, 
+    breakatwhitespace=false, 
+    breaklines=true, 
+    captionpos=b, 
+    keepspaces=true,
+    numbers=left, 
+    numbersep=5pt, 
+    showspaces=false, 
+    showstringspaces=false,
+    showtabs=false, 
+    tabsize=2, 
+    frame=single,
+    basicstyle=\ttfamily\footnotesize,
+    numberstyle=\tiny\color{codegray},
+    columns=flexible,
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+    breakindent=0pt,
+    breakautoindent=false
+}
+
+% Gaya khusus untuk HTML
+\lstdefinestyle{htmlstyle}{
+    style=commonstyle,
+    language=HTML,
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codepurple},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\scriptsize
+}
+
+% Gaya khusus untuk CSS
+\lstdefinestyle{cssstyle}{
+    style=commonstyle,
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{darkblue},
+    stringstyle=\color{codepurple},
+    emph={color, background, font, margin, padding, border, display, position, width, height},
+    emphstyle=\color{darkblue},
+    basicstyle=\ttfamily\scriptsize
+}
+
+% Gaya khusus untuk Python
+\lstdefinestyle{pythonstyle}{
+    style=commonstyle,
+    language=Python,
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{darkblue},
+    stringstyle=\color{codepurple},
+    emph={import,from,class,def,for,while,if,else,elif,try,except,finally},
+    emphstyle=\color{darkblue}
+}
+
+% Gaya khusus untuk SQL
+\lstdefinestyle{sqlstyle}{
+    style=commonstyle,
+    language=SQL,
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{darkblue},
+    stringstyle=\color{codepurple},
+    emph={SELECT,FROM,WHERE,INSERT,UPDATE,DELETE,CREATE,DROP},
+    emphstyle=\color{darkblue}
+}
+
+% Gaya khusus untuk JavaScript
+\lstdefinestyle{javascriptstyle}{
+    style=commonstyle,
+    language=JavaScript,
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{darkblue},
+    stringstyle=\color{codepurple},
+    emph={function,var,let,const,return,if,for,while,do,else,switch,case},
+    emphstyle=\color{darkblue}
+}
+
+% Gaya khusus untuk Java
+\lstdefinestyle{javastyle}{
+    style=commonstyle,
+    language=Java,
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{darkblue}\bfseries,
+    stringstyle=\color{codepurple},
+    emph={@Test,@Mock,@InjectMocks,@ExtendWith},
+    emphstyle=\color{codepurple}
+}
+
+%======================================================================
+% PENGATURAN LAIN-LAIN
+%======================================================================
+
+% Mengganti nama default "Figure" menjadi "Gambar"
+\renewcommand{\figurename}{Gambar}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+% Pengaturan Hyperlink
+\hypersetup{
+    colorlinks=true, 
+    linkcolor=black, 
+    filecolor=black, 
+    urlcolor=black,
+    citecolor=blue,
+    pdftitle={Laporan Praktikum}, 
+    pdfpagemode=FullScreen, 
+    breaklinks=true
+}
+
+% Pengaturan citation style
+\bibliographystyle{plain}
+
+% Pengaturan Header & Footer (nomor halaman di tengah bawah)
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+%======================================================================
+% PENGATURAN STRUKTUR BAB DAN DAFTAR ISI
+%======================================================================
+\renewcommand{\contentsname}{Daftar Isi}
+\renewcommand{\bibname}{Daftar Pustaka}
+
+% Menghilangkan nomor bab tetapi mempertahankan penomoran seksi
+\renewcommand{\thechapter}{}
+\renewcommand{\chaptername}{}
+
+% Format penomoran seksi menjadi [nomor bab].[nomor seksi]
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+% Format Daftar Isi (TOC)
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
+\setlength{\cftchapindent}{0em}
+\setlength{\cftsecindent}{2em}
+\setlength{\cftsubsecindent}{4em}
+\setlength{\cftchapnumwidth}{0em}
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{3.2em}
+\renewcommand{\cftchappresnum}{}
+\renewcommand{\cftchapaftersnum}{}
+
+% Perintah kustom untuk membuat judul bab di TOC menjadi tebal
+\newcommand{\tocboldsection}[1]{%
+  \protect\renewcommand{\protect\cftchapfont}{\protect\bfseries}%
+  #1%
+  \protect\renewcommand{\protect\cftchapfont}{}%
+}
+
+%======================================================================
+% AWAL DOKUMEN
+%======================================================================
+\begin{document}
+
+% Halaman Judul
+\newgeometry{left=3cm, right=2.5cm, top=2.5cm, bottom=3cm}
+\begin{titlepage}
+\begin{center}
+\vspace*{0.5cm}
+{\large \textbf{\MakeUppercase{Laporan Praktikum}}} \\[0.4cm]
+{\large \textbf{\MakeUppercase{PRAKTIKUM PENGUJIAN PERANGKAT LUNAK}}} \\[0.4cm]
+{\large \textbf{\MakeUppercase{Pertemuan 9}}} \\[0.4cm]
+{\large \textbf{\MakeUppercase{Advanced Interaction and Wait Strategy}}} \\[1.5cm]
+
+\includegraphics[height=7cm]{lambang ugm.png} \\[1cm]
+
+{\normalsize \textbf{Disusun oleh:}} \\[0.4cm]
+\begin{tabular}{@{}l l @{}}
+  \textbf{Nama}           & : Januarsyah Akbar \\
+  \textbf{NIM}            & : 24/535846/SV/24314 \\
+  \textbf{Kelas}          & : PL4B2 \\
+    \textbf{Dosen Pengampu} & : Divi Galih Prasetyo Putri, S.Kom., M.Kom., Ph.D.
+\end{tabular} \\[1.2cm]
+
+{\normalsize \textbf{PROGRAM STUDI D-IV}} \\[0.2cm]
+{\normalsize \textbf{TEKNOLOGI REKAYASA PERANGKAT LUNAK}} \\[0.2cm]
+{\normalsize \textbf{DEPARTEMEN TEKNIK ELEKTRO DAN INFORMATIKA}} \\[0.2cm]
+{\normalsize \textbf{SEKOLAH VOKASI}} \\[0.2cm]
+{\normalsize \textbf{UNIVERSITAS GADJAH MADA}} \\[0.2cm]
+{\normalsize \textbf{YOGYAKARTA}} \\[0.2cm]
+{\normalsize \textbf{\today}} \\[1.2cm]
+\end{center}
+\end{titlepage}
+\restoregeometry
+
+\thispagestyle{empty}
+\clearpage
+\stepcounter{page}
+\thispagestyle{empty}
+
+% --- Daftar Isi ---
+\addcontentsline{toc}{chapter}{Daftar Isi}
+\tableofcontents
+\clearpage
+
+% Mengatur penomoran halaman menjadi arab dan mulai dari 3
+\pagenumbering{arabic}
+\setcounter{page}{3}
+
+%======================================================================
+\chapter[Tujuan Praktikum]{Tujuan Praktikum}
+%======================================================================
+\begin{enumerate}
+    \item Mahasiswa mampu memahami dan mengimplementasi \textit{Action Class} untuk melakukan interaksi situs yang kompleks seperti \textit{hover}, \textit{keypresses}, dan \textit{drag and drop}.
+    \item Mahasiswa mampu menggunakan dan memahami konsep mekanisme tunggu (\textit{Wait Strategy}) seperti penggunaan \textit{Implicit Wait}, \textit{Explicit Wait}, beserta penanganan terhadap pelbagai \textit{Exceptions}.
+\end{enumerate}
+\clearpage
+
+%======================================================================
+\chapter[\texorpdfstring{\tocboldsection{Hasil dan Pembahasan}}{Hasil dan Pembahasan}]{Hasil dan Pembahasan}
+%======================================================================
+
+%----------------------------------------------------------------------
+\section{Latihan (Advanced Interactions)}
+%----------------------------------------------------------------------
+
+Pada bagian latihan ini, kita akan mempraktikkan kelas \texttt{Actions} dari Selenium WebDriver untuk menangani interaksi pengguna tingkat lanjut (\textit{Advanced Interaction}) yang tidak dapat ditangani dengan utilitas \textit{WebElement} standar. Interaksi yang diujikan mencakup \textit{hover} ke elemen tertentu serta simulasi ketukan \textit{keyboard} (tombol \textit{SHIFT}).
+
+Pengujian ini mengimplementasikan skenario interaksi yang kompleks dari halaman latihan "The Internet Herokuapp" yang dibagi ke dalam dua buah metode pengujian berbeda.
+
+\subsection{Metode Pengujian \texttt{testHoverShowsName}}
+Pengujian ini memverifikasi interaksi \textit{hover} pada gambar untuk memunculkan profil sekunder (caption).
+
+\subsubsection*{1. Navigasi dan Pencarian Target}
+\begin{lstlisting}[style=javastyle]
+    driver.get("https://the-internet.herokuapp.com/hovers");
+    WebElement firstFigure = driver.findElement(By.cssSelector(".figure:nth-of-type(1)"));
+\end{lstlisting}
+Pada tahap ini, \textit{webdriver} diarahkan ke tautan tujuan utama. Selanjutnya, program mencari komponen membungkus struktur gambar pertama dengan memanfaatkan \textit{CSS Selector}.
+
+\subsubsection*{2. Simulasi Tindakan Hover}
+\begin{lstlisting}[style=javastyle]
+    actions.moveToElement(firstFigure).perform();
+\end{lstlisting}
+Kelas \texttt{Actions} mengambil alih pergerakan virtual dengan menautkan koordinat \textit{pointer} tetikus (\textit{mouse}) ke arah elemen yang telah dideteksi sebelumnya, disusul pemanggilan method \texttt{.perform()} untuk mengeksekusi secara nyata interaksi tersebut.
+
+\subsubsection*{3. Verifikasi Pemuatan Teks (Assertion)}
+\begin{lstlisting}[style=javastyle]
+    WebElement caption = firstFigure.findElement(By.cssSelector(".figcaption h5"));
+    String text = caption.getText().trim();
+    Assertions.assertTrue(text.toLowerCase().contains("user1"), "Caption harus mengandung 'user1' tetapi ditemukan: " + text);
+\end{lstlisting}
+Setelah elemen di-\textit{hover}, teks identitas bertuliskan "name: user1" baru dirender menjadi visibel oleh browser. Langkah pamungkasnya adalah memancing propeerti teks tersebut, mengkonversinya (\texttt{toLowerCase()}), lalu memastikannya lolos persyaratan pengujian \texttt{Assertions}.
+
+\subsection{Metode Pengujian \texttt{testKeyPressesShift}}
+Pengujian ini memvalidasi apakah pengiriman sinyal tombol spesifik dari \textit{keyboard} pengguna (dalam hal ini \textit{SHIFT}) ditangkap dan dihimpun oleh \textit{event listener} DOM laman eksternal.
+
+\subsubsection*{1. Inisialisasi Laman dan Input Keyboard}
+\begin{lstlisting}[style=javastyle]
+    driver.get("https://the-internet.herokuapp.com/key_presses");
+    WebElement input = driver.findElement(By.id("target"));
+    actions.click(input).sendKeys(Keys.SHIFT).perform();
+\end{lstlisting}
+Pertama-tama agen mengakses pranala penyedia tes ketukan tombol. Aktivasi ketukan otomatis dilakukan berjejer dengan mengincar fungsional komponen target (\texttt{click()}) dan menyuntikkan instruksi mekanis menekan tombol \texttt{SHIFT} ke dalamnya menggunakan abstraksi \texttt{Keys.SHIFT}.
+
+\subsubsection*{2. Validasi Keluaran}
+\begin{lstlisting}[style=javastyle]
+    WebElement result = driver.findElement(By.id("result"));
+    String text = result.getText().trim();
+    Assertions.assertTrue(text.toUpperCase().contains("SHIFT"), "Hasil harus mengandung SHIFT tetapi ditemukan: " + text);
+\end{lstlisting}
+Sistem situs dari pihak \textit{heroku} akan mem-parsing keluaran hasil simulasi secara seketika pada sebuah komponen teks bernaung \texttt{\#result}. Skrip mengakhiri sesi dengan melintasi DOM elemen spesifik tersebut dan melakukan asersi kecocokan untai barisan penulisan ("SHIFT").
+
+\newpage
+
+%----------------------------------------------------------------------
+\section{Tugas (Wait Strategies)}
+%----------------------------------------------------------------------
+
+Pada tahap pengerjaan tugas, kita berfokus pada berbagai ragam strategi penyesuaian waktu asinkronisasi (\textit{wait strategies}) dalam Selenium untuk menangkal fenomena kegagalan (\textit{flaky test}) pada elemen web dinamis. Mekanisme pengamatan diberlakukan pada situs "Practice Test Exceptions". Objek penaksirannya melibatkan validasi terhadap kelas-kelas turunan \textit{Exception} bila kondisi-kondisi tunggu seperti \texttt{Thread.sleep()}, \textit{implicit wait}, dan \textit{explicit wait} dipicu secara terisolasi.
+
+\subsection{Metode Pengujian \texttt{testCase1\_noSuchElementAndWaits}}
+Fungsi ini ditujukan untuk membedakan sifat perilaku berbagai algoritma waktu jeda tatkala sebuah elemen yang dimintakan tidak pernah bermukim di dalam DOM.
+
+\subsubsection*{1. Tanpa Sistem Tunggu (Implicit Wait = 0)}
+\begin{lstlisting}[style=javastyle]
+    By missing = By.id("this-id-does-not-exist-hopefully");
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+    Assertions.assertThrows(NoSuchElementException.class, () -> driver.findElement(missing), "Harus melempar NoSuchElementException");
+\end{lstlisting}
+Saat \textit{property latency} driver diatur sebesar 0, eksekusi pemanggilan pemetaan tidak akan menoleransi kegagalan dan langsung memvonis sistem dengan pencetakan \texttt{NoSuchElementException}.
+
+\subsubsection*{2. Skenario Implicit Wait (5 Detik)}
+\begin{lstlisting}[style=javastyle]
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    long start = System.nanoTime();
+    Assertions.assertThrows(NoSuchElementException.class, () -> driver.findElement(missing));
+\end{lstlisting}
+Pendekatan ini menyisipkan durasi kompromi di hulu (\textit{global driver}). Jika \textit{element} tak terlihat, \textit{driver} akan memantau ulang \textit{source target} terus-menerus selama 5 detik hingga tiba di masa habisnya periode lalu melempar turunan \textit{Exception} yang sama.
+
+\subsubsection*{3. Skenario Explicit Wait (Kondisional)}
+\begin{lstlisting}[style=javastyle]
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+    Assertions.assertThrows(org.openqa.selenium.TimeoutException.class, () -> wait.until(ExpectedConditions.presenceOfElementLocated(missing)));
+\end{lstlisting}
+Modul eksplisit dioperasikan eksklusif terhadap sebuah entitas alih-alih seluruh sesi. Jika \texttt{ExpectedConditions} dalam batas waktu (3 detik) urung dicapai, kerangka Selenium otomatis memutuskan \textit{event loop} dan meletuskan \texttt{TimeoutException}.
+
+\subsubsection*{4. Interupsi Konvensional (Thread.sleep)}
+\begin{lstlisting}[style=javastyle]
+    try {
+        Thread.sleep(2000);
+    } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+    Assertions.assertThrows(NoSuchElementException.class, () -> driver.findElement(missing));
+\end{lstlisting}
+Memanfaatkan fungsional Java untuk mematikan komputasi secara instan (\textit{hard delay}) selama 2 detik tak berkorelasi terhadap stabilitas siklus elemen, sehingga eror tetap merujuk secara statis ke dalam \texttt{NoSuchElementException}.
+
+\subsection{Metode Pengujian \texttt{testCase5\_staleElement}}
+Sesi blok metodologi di bawah ini dipertunjukkan untuk merepresentasikan dan menangani skema kehilangan tautan (\textit{lossing bindings}) pada \textit{reference object} antar eksekusi perenderan skrip.
+
+\subsubsection*{1. Penetapan Elemen Laman Awal}
+\begin{lstlisting}[style=javastyle]
+    WebElement heading = driver.findElement(By.cssSelector("h1, h2, h3"));
+    String text = heading.getText();
+    Assertions.assertNotNull(text);
+\end{lstlisting}
+Elemen primer pertama kali ditinjau dari posisi absolutnya di awal muatan DOM berjalan mulus berujung pada eksistensi objek \texttt{text} yang tak bernilai null.
+
+\subsubsection*{2. Refleksi Peremajaan Relasi (Stale Error)}
+\begin{lstlisting}[style=javastyle]
+    driver.navigate().refresh();
+    Assertions.assertThrows(StaleElementReferenceException.class, () -> heading.getText());
+\end{lstlisting}
+Pemuatan kompilasi ulang (termasuk manipulasi aset maupun \textit{refresh()}) menghancurkan relasi historis indeks, mengucilkan \textit{instance object} walau rupa DOM secara visual terbilang identik. Akibatnya eksekusi ulang meledakkan \texttt{StaleElementReferenceException}.
+
+\subsubsection*{3. Mekanisme \textit{Re-locate} Pemulihan Memori}
+\begin{lstlisting}[style=javastyle]
+    WebElement headingNew = driver.findElement(By.cssSelector("h1, h2, h3"));
+    Assertions.assertNotNull(headingNew.getText());
+\end{lstlisting}
+Cara baku menghempaskan masalah elemen usang / kadaluwarsa melingkupi pendaftaran pencarian pengait baru dan pembentukan variabel pengganti sesuai siklus perenderan web termutakhir.
+
+% \chapter{Resources}
+% %======================================================================
+
+\section*{Repository}
+akses kode lengkap untuk latihan dan tugas praktikum ini dapat ditemukan pada repository GitHub berikut:
+\begin{center}
+    \href{https://github.com/januarsyah901/PPPL/tree/0042808b29cfa8deeaee62a9c6c7cb604ddf6f54/Pertemuan%208}{GitHub Repository}
+\end{center}
+
+\clearpage
+
+%======================================================================
+\chapter{Kesimpulan}
+%======================================================================
+
+Berdasarkan praktikum yang telah dilakukan, dapat disimpulkan bahwa penggunaan kakas bantu seperti Selenium WebDriver memberikan fungsionalitas lanjutan yang ekstensif melalui kelas \textit{Actions} untuk menangani perilaku-perilaku non-trivial antarmuka web, semisal interaksi \textit{hover}, \textit{keypress}, maupun \textit{drag-and-drop}. Implementasi tersebut mendemonstrasikan keunggulan \textit{automated testing} yang sangat mirip dengan pola natural pengguna manusia. 
+
+Lebih lanjut, eksperimentasi seputar \textit{Wait Strategy} yang diujikan turut mevalidasi esensi mekanisme pengkondisian siklus waktu dalam menangkal kerentanan terhadap stabilitas dan varians pemuatan aset serta \textit{render delay}. Eksekusi penanganan menggunakan opsi \textit{Implicit Wait} maupun \textit{Explicit Wait} jauh lebih aman serta efisien bila disandingkan dengan fungsi \textit{blocking} mutlak turunan bawaan Java seperti \texttt{Thread.sleep()}, mereduksi latensi dan waktu uji, seraya memungkinkan penyusunan skenario \textit{Exception handling} logis yang terukur semisal pada kasus \texttt{NoSuchElementException} dan \texttt{StaleElementReferenceException}.
+
+% \clearpage
+% \addcontentsline{toc}{chapter}{Daftar Pustaka}
+% \renewcommand{\bibname}{Daftar Pustaka}
+
+% \begin{thebibliography}{99}
+%     \bibitem{mockito} Mockito Project, ``Mockito --- tasty mocking framework for unit tests in Java''. [Online]. Tersedia: \url{https://site.mockito.org/}.
+%     \bibitem{junit5} JUnit Team, ``JUnit 5 User Guide''. [Online]. Tersedia: \url{https://junit.org/junit5/docs/current/user-guide/}.
+%     \bibitem{fowler-mocks} Martin Fowler, ``Mocks Aren't Stubs'', 2007. [Online]. Tersedia: \url{https://martinfowler.com/articles/mocksArentStubs.html}.
+% \end{thebibliography}
+
+\end{document}

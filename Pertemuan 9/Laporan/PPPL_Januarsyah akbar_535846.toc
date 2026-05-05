@@ -1,0 +1,10 @@
+\contentsline {chapter}{Daftar Isi}{2}{Doc-Start}%
+\contentsline {chapter}{\numberline {}Tujuan Praktikum}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {}\renewcommand {\cftchapfont }{\bfseries }Hasil dan Pembahasan\renewcommand {\cftchapfont }{}}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Latihan (Advanced Interactions)}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Metode Pengujian \texttt {testHoverShowsName}}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Metode Pengujian \texttt {testKeyPressesShift}}{5}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Tugas (Wait Strategies)}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Metode Pengujian \texttt {testCase1\_noSuchElementAndWaits}}{6}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Metode Pengujian \texttt {testCase5\_staleElement}}{7}{subsection.2.2.2}%
+\contentsline {chapter}{\numberline {}Kesimpulan}{8}{chapter.3}%
