@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="991c1d5c-147c-4c9a-ae76-f84be4c7ce37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/Pertemuan 9.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modul.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LatihanActionsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TugasWaitsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Pertemuan 8/replacer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Pertemuan 8/rewrite_tex.py" beforeDir="false" />
-    </list>
+    <list default="true" id="991c1d5c-147c-4c9a-ae76-f84be4c7ce37" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,7 +138,7 @@
       <option name="presentableId" value="Default" />
       <updated>1777948561618</updated>
       <workItem from="1777948562803" duration="5388000" />
-      <workItem from="1777969255812" duration="1115000" />
+      <workItem from="1777969255812" duration="1717000" />
     </task>
     <servers />
   </component>

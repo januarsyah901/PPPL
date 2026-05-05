@@ -7,4 +7,4 @@
 \contentsline {section}{\numberline {2.2}Tugas (Wait Strategies)}{7}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Metode Pengujian \texttt {testCase1\_noSuchElementAndWaits}}{7}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Metode Pengujian \texttt {testCase5\_staleElement}}{8}{subsection.2.2.2}%
-\contentsline {chapter}{\numberline {}Kesimpulan}{10}{chapter.3}%
+\contentsline {chapter}{\numberline {}Kesimpulan}{11}{chapter.3}%
