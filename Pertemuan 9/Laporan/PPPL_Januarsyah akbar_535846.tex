@@ -262,6 +262,20 @@ Pada bagian latihan ini, kita akan mempraktikkan kelas \texttt{Actions} dari Sel
 Pengujian ini mengimplementasikan skenario interaksi yang kompleks dari halaman latihan "The Internet Herokuapp" yang dibagi ke dalam dua buah metode pengujian berbeda.
 
 \subsection{Metode Pengujian \texttt{testHoverShowsName}}
+\begin{lstlisting}[style=javastyle, caption=Metode Utuh \texttt{testHoverShowsName}]
+    @Test
+    @DisplayName("Hover: nama user1 muncul saat hover gambar pertama")
+    public void testHoverShowsName() {
+        driver.get("https://the-internet.herokuapp.com/hovers");
+
+        WebElement firstFigure = driver.findElement(By.cssSelector(".figure:nth-of-type(1)"));
+        actions.moveToElement(firstFigure).perform();
+
+        WebElement caption = firstFigure.findElement(By.cssSelector(".figcaption h5"));
+        String text = caption.getText().trim();
+        Assertions.assertTrue(text.toLowerCase().contains("user1"), "Caption harus mengandung 'user1' tetapi ditemukan: " + text);
+    }
+\end{lstlisting}
 Pengujian ini memverifikasi interaksi \textit{hover} pada gambar untuk memunculkan profil sekunder (caption).
 
 \subsubsection*{1. Navigasi dan Pencarian Target}
@@ -286,6 +300,20 @@ Kelas \texttt{Actions} mengambil alih pergerakan virtual dengan menautkan koordi
 Setelah elemen di-\textit{hover}, teks identitas bertuliskan "name: user1" baru dirender menjadi visibel oleh browser. Langkah pamungkasnya adalah memancing propeerti teks tersebut, mengkonversinya (\texttt{toLowerCase()}), lalu memastikannya lolos persyaratan pengujian \texttt{Assertions}.
 
 \subsection{Metode Pengujian \texttt{testKeyPressesShift}}
+\begin{lstlisting}[style=javastyle, caption=Metode Utuh \texttt{testKeyPressesShift}]
+    @Test
+    @DisplayName("Key presses: tekan SHIFT dan verifikasi teks hasil")
+    public void testKeyPressesShift() {
+        driver.get("https://the-internet.herokuapp.com/key_presses");
+
+        WebElement input = driver.findElement(By.id("target"));
+        actions.click(input).sendKeys(Keys.SHIFT).perform();
+
+        WebElement result = driver.findElement(By.id("result"));
+        String text = result.getText().trim();
+        Assertions.assertTrue(text.toUpperCase().contains("SHIFT"), "Hasil harus mengandung SHIFT tetapi ditemukan: " + text);
+    }
+\end{lstlisting}
 Pengujian ini memvalidasi apakah pengiriman sinyal tombol spesifik dari \textit{keyboard} pengguna (dalam hal ini \textit{SHIFT}) ditangkap dan dihimpun oleh \textit{event listener} DOM laman eksternal.
 
 \subsubsection*{1. Inisialisasi Laman dan Input Keyboard}
@@ -313,6 +341,36 @@ Sistem situs dari pihak \textit{heroku} akan mem-parsing keluaran hasil simulasi
 Pada tahap pengerjaan tugas, kita berfokus pada berbagai ragam strategi penyesuaian waktu asinkronisasi (\textit{wait strategies}) dalam Selenium untuk menangkal fenomena kegagalan (\textit{flaky test}) pada elemen web dinamis. Mekanisme pengamatan diberlakukan pada situs "Practice Test Exceptions". Objek penaksirannya melibatkan validasi terhadap kelas-kelas turunan \textit{Exception} bila kondisi-kondisi tunggu seperti \texttt{Thread.sleep()}, \textit{implicit wait}, dan \textit{explicit wait} dipicu secara terisolasi.
 
 \subsection{Metode Pengujian \texttt{testCase1\_noSuchElementAndWaits}}
+\begin{lstlisting}[style=javastyle, caption=Metode Utuh \texttt{testCase1\_noSuchElementAndWaits}]
+    @Test
+    @DisplayName("Test Case 1 - demonstrasi NoSuchElementException dan strategi wait")
+    public void testCase1_noSuchElementAndWaits() {
+        driver.get("https://practicetestautomation.com/practice-test-exceptions/");
+
+        By missing = By.id("this-id-does-not-exist-hopefully");
+
+        // 1) Tanpa wait/implicit
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        Assertions.assertThrows(NoSuchElementException.class, () -> driver.findElement(missing), "Harus melempar NoSuchElementException");
+
+        // 2) Dengan implicit wait
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        long start = System.nanoTime();
+        Assertions.assertThrows(NoSuchElementException.class, () -> driver.findElement(missing));
+
+        // 3) Dengan explicit wait
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        Assertions.assertThrows(org.openqa.selenium.TimeoutException.class, () -> wait.until(ExpectedConditions.presenceOfElementLocated(missing)));
+
+        // 4) Thread.sleep
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        Assertions.assertThrows(NoSuchElementException.class, () -> driver.findElement(missing));
+    }
+\end{lstlisting}
 Fungsi ini ditujukan untuk membedakan sifat perilaku berbagai algoritma waktu jeda tatkala sebuah elemen yang dimintakan tidak pernah bermukim di dalam DOM.
 
 \subsubsection*{1. Tanpa Sistem Tunggu (Implicit Wait = 0)}
@@ -348,6 +406,24 @@ Modul eksplisit dioperasikan eksklusif terhadap sebuah entitas alih-alih seluruh
 Memanfaatkan fungsional Java untuk mematikan komputasi secara instan (\textit{hard delay}) selama 2 detik tak berkorelasi terhadap stabilitas siklus elemen, sehingga eror tetap merujuk secara statis ke dalam \texttt{NoSuchElementException}.
 
 \subsection{Metode Pengujian \texttt{testCase5\_staleElement}}
+\begin{lstlisting}[style=javastyle, caption=Metode Utuh \texttt{testCase5\_staleElement}]
+    @Test
+    @DisplayName("Test Case 5 - demonstrasi StaleElementReferenceException dan solusinya")
+    public void testCase5_staleElement() {
+        driver.get("https://practicetestautomation.com/practice-test-exceptions/");
+
+        WebElement heading = driver.findElement(By.cssSelector("h1, h2, h3"));
+        String text = heading.getText();
+        Assertions.assertNotNull(text);
+
+        driver.navigate().refresh();
+
+        Assertions.assertThrows(StaleElementReferenceException.class, () -> heading.getText());
+
+        WebElement headingNew = driver.findElement(By.cssSelector("h1, h2, h3"));
+        Assertions.assertNotNull(headingNew.getText());
+    }
+\end{lstlisting}
 Sesi blok metodologi di bawah ini dipertunjukkan untuk merepresentasikan dan menangani skema kehilangan tautan (\textit{lossing bindings}) pada \textit{reference object} antar eksekusi perenderan skrip.
 
 \subsubsection*{1. Penetapan Elemen Laman Awal}
@@ -378,7 +454,7 @@ Cara baku menghempaskan masalah elemen usang / kadaluwarsa melingkupi pendaftara
 \section*{Repository}
 akses kode lengkap untuk latihan dan tugas praktikum ini dapat ditemukan pada repository GitHub berikut:
 \begin{center}
-    \href{https://github.com/januarsyah901/PPPL/tree/0042808b29cfa8deeaee62a9c6c7cb604ddf6f54/Pertemuan%208}{GitHub Repository}
+    \href{https://github.com/januarsyah901/PPPL/tree/f64619ff6b89b5a33843aa49249ab006409b473e/Pertemuan%209}{GitHub Repository}
 \end{center}
 
 \clearpage
