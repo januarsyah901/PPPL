@@ -414,18 +414,23 @@ public class inventoryPage extends basePage {
 \end{enumerate}
 
 \section{Pembuatan Test Runner}
-Sebuah kelas bernama \texttt{RunCucumberTest.java} dibuat pada paket \texttt{runner} (\texttt{src/test/java/runner}) untuk mendefinisikan letak berkas fungsionalitas (\textit{features}), letak kelas langkah uji (\textit{glue}), serta pengaturan format keluaran (\textit{pretty} dan laporan HTML).
-\begin{lstlisting}[style=javastyle, caption={Implementasi Kelas RunCucumberTest.java}]
+Sebuah kelas bernama \texttt{RunCucumberTest.java} dibuat pada paket \texttt{runner} (\texttt{src/test/java/runner}). Berbeda dengan JUnit 4 tradisional yang memakai \texttt{@RunWith(Cucumber.class)}, implementasi ini menggunakan \textbf{JUnit Platform Suite Engine} (JUnit 5) agar dapat mengonfigurasi parameter filter tag secara deklaratif via anotasi \texttt{@ConfigurationParameter} untuk menyaring skenario pengujian yang akan dijalankan.
+
+\begin{lstlisting}[style=javastyle, caption={Implementasi Kelas RunCucumberTest.java dengan JUnit Platform Suite}]
 package runner;
 
-// [Import statements omitted]
+import io.cucumber.junit.platform.engine.Constants;
+import org.junit.platform.suite.api.ConfigurationParameter;
+import org.junit.platform.suite.api.IncludeEngines;
+import org.junit.platform.suite.api.SelectClasspathResource;
+import org.junit.platform.suite.api.Suite;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(
-    features = "src/test/resources/features",
-    glue = "stepDef",
-    plugin = {"pretty", "html:target/cucumber-reports.html"}
-)
+@Suite
+@IncludeEngines("cucumber")
+@SelectClasspathResource("features")
+@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "stepDef")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-reports.html")
+@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@Tugas")
 public class RunCucumberTest {
 }
 \end{lstlisting}
@@ -440,6 +445,7 @@ Pada sesi Latihan, skenario difokuskan pada pengujian otomatis fitur pencarian d
 \subsection{Gherkin Feature File - \texttt{search.feature}}
 Berkas \texttt{search.feature} diletakkan di direktori \texttt{src/test/resources/features/search.feature}:
 \begin{lstlisting}[style=gherkinstyle, caption={Skenario Uji search.feature dengan Bahasa Gherkin}]
+@Latihan
 Feature: Search functionality on Bing
 
   Scenario: Search for a keyword on Bing
@@ -450,23 +456,26 @@ Feature: Search functionality on Bing
 \end{lstlisting}
 
 \subsection{Step Definitions - \texttt{SearchSteps.java}}
-Kelas pemetaan langkah fungsional pencarian Bing diimplementasikan di \texttt{src/test/java/stepDef/SearchSteps.java}:
+Kelas pemetaan langkah fungsional pencarian Bing diimplementasikan di \texttt{src/test/java/stepDef/SearchSteps.java} dengan mengacu pada inisialisasi \texttt{WebDriver} dari Cucumber Hooks:
 \begin{lstlisting}[style=javastyle, caption={Implementasi Kelas Langkah Uji SearchSteps.java}]
 package stepDef;
 
-// [Import statements omitted]
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
+import pages.searchPage;
+import pages.resultPage;
 
 public class SearchSteps {
-    WebDriver driver;
     searchPage search;
     resultPage result;
 
     @Given("aku buka halaman pencarian Bing")
     public void iAmOnTheBingSearchPage() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://www.bing.com");
-        search = new searchPage(driver);
+        Hooks.driver.get("https://www.bing.com");
+        search = new searchPage(Hooks.driver);
     }
 
     @When("aku ngetik kata kunci {string}")
@@ -481,11 +490,10 @@ public class SearchSteps {
 
     @Then("harusnya muncul hasil yang ada hubungannya sama {string}")
     public void iShouldSeeResultsRelatedTo(String query) {
-        result = new resultPage(driver);
+        result = new resultPage(Hooks.driver);
         String title = result.getPageTitle();
         Assert.assertTrue("Judul halaman '" + title + "' gak ada hubungannya sama '" + query + "'", 
             title.toLowerCase().contains(query.toLowerCase()));
-        driver.quit();
     }
 }
 \end{lstlisting}
@@ -508,6 +516,7 @@ Pada bagian Tugas Mandiri, skenario difokuskan untuk menguji fitur autentikasi p
 \subsection{Gherkin Feature File - \texttt{login.feature}}
 Berkas \texttt{login.feature} diletakkan di direktori \texttt{src/test/resources/features/login.feature}:
 \begin{lstlisting}[style=gherkinstyle, caption={Skenario Uji login.feature dengan Scenario Outline}]
+@Tugas
 Feature: Login functionality for SauceDemo
 
   Scenario Outline: Successful login with valid credentials
@@ -528,23 +537,26 @@ Feature: Login functionality for SauceDemo
 \end{lstlisting}
 \clearpage
 \subsection{Step Definitions - \texttt{LoginSteps.java}}
-Kelas implementasi langkah fungsional untuk autentikasi login SauceDemo ditulis pada \texttt{src/test/java/stepDef/LoginSteps.java}:
+Kelas implementasi langkah fungsional untuk autentikasi login SauceDemo ditulis pada \texttt{src/test/java/stepDef/LoginSteps.java} dengan mengacu pada inisialisasi \texttt{WebDriver} dari Cucumber Hooks:
 \begin{lstlisting}[style=javastyle, caption={Implementasi Kelas Langkah Uji LoginSteps.java}]
 package stepDef;
 
-// [Import statements omitted]
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
+import pages.loginPage;
+import pages.inventoryPage;
 
 public class LoginSteps {
-    WebDriver driver;
     loginPage login;
     inventoryPage inventory;
 
     @Given("aku lagi di halaman login SauceDemo")
     public void iAmOnTheSauceDemoLoginPage() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://www.saucedemo.com/");
-        login = new loginPage(driver);
+        Hooks.driver.get("https://www.saucedemo.com/");
+        login = new loginPage(Hooks.driver);
     }
 
     @When("aku masukin username {string} sama password {string}")
@@ -560,18 +572,53 @@ public class LoginSteps {
 
     @Then("aku harusnya langsung masuk ke halaman inventory")
     public void iShouldBeRedirectedToTheInventoryPage() {
-        inventory = new inventoryPage(driver);
+        inventory = new inventoryPage(Hooks.driver);
         Assert.assertTrue("Halaman inventory gak muncul nih", inventory.isInventoryDisplayed());
-        driver.quit();
     }
 
     @Then("harusnya muncul pesan error")
     public void iShouldSeeAnErrorMessage() {
         Assert.assertTrue("Pesan error malah gak ada", login.isErrorMessageDisplayed());
-        driver.quit();
     }
 }
 \end{lstlisting}
+
+\clearpage
+
+\subsection{Implementasi Cucumber Hooks}
+Untuk mengotomatisasi daur hidup \texttt{WebDriver} (\textit{browser creation and teardown}), diimplementasikan modul \textbf{Cucumber Hooks} (\texttt{@Before} dan \texttt{@After}). Daur hidup diatur secara global dalam satu berkas terpisah bernama \texttt{Hooks.java} di dalam paket \texttt{stepDef}:
+
+\begin{lstlisting}[style=javastyle, caption={Implementasi Kelas Hooks.java}]
+package stepDef;
+
+import io.cucumber.java.Before;
+import io.cucumber.java.After;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.time.Duration;
+
+public class Hooks {
+    public static WebDriver driver;
+
+    @Before
+    public void setUp() {
+        if (driver == null) {
+            driver = new ChromeDriver();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        }
+    }
+
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
+    }
+}
+\end{lstlisting}
+
+Dengan diimplementasikannya berkas \texttt{Hooks.java}, pemanggilan inisialisasi \texttt{new ChromeDriver()} dan penutupan browser \texttt{driver.quit()} pada masing-masing langkah pengujian fungsional (\texttt{LoginSteps.java} dan \texttt{SearchSteps.java}) dapat dieliminasi secara utuh. Hal ini mencegah terjadinya redudansi kode serta kebocoran memori (\textit{browser ghost processes}) jika ada asersi uji yang gagal di tengah proses.
 \clearpage
 \subsection{Hasil Pengujian Fitur Login}
 Pengujian dijalankan secara otomatis dengan JUnit Runner. Hasil eksekusi menunjukkan kedua skenario autentikasi berhasil diselesaikan tanpa kesalahan (\textit{All Passed}):
@@ -597,6 +644,10 @@ Praktikum Pertemuan 11 ini berhasil mempraktikkan proses automasi pengujian meng
 
 Proyek berhasil dikonfigurasi menggunakan Maven dengan mendefinisikan versi Cucumber \texttt{7.34.3} dan Selenium \texttt{4.21.0} secara selaras. Implementasi skenario pencarian Bing (Latihan) dan skenario masuk akun SauceDemo (Tugas) yang didefinisikan dalam sintaks Gherkin bahasa Indonesia telah terbukti berjalan dengan sukses, asersi lulus 100\%, dan tercatat dalam berkas laporan pengujian otomatis secara komprehensif. Penerapan pola POM terbukti mempermudah perawatan kode uji dengan memisahkan representasi elemen laman dari alur logika skenario pengujian fungsional.
 
-
+\section{Repositori Kode Sumber (Resource)}
+Dapatkan full code pada link github di bawah ini:
+\begin{center}
+    \url{https://github.com/januarsyah901/PPPL/tree/5a3220e3abf508bef4469c541536b9ecb77a9eed/Pertemuan%2011}
+\end{center}
 
 \end{document}

@@ -12,5 +12,7 @@
 \contentsline {section}{\numberline {3.2}Tugas: Pengujian Fitur Login (Login Feature)}{8}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Gherkin Feature File - \texttt {login.feature}}{8}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Step Definitions - \texttt {LoginSteps.java}}{9}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Hasil Pengujian Fitur Login}{10}{subsection.3.2.3}%
-\contentsline {chapter}{\numberline {}Kesimpulan}{11}{chapter.4}%
+\contentsline {subsection}{\numberline {3.2.3}Implementasi Cucumber Hooks}{10}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Hasil Pengujian Fitur Login}{11}{subsection.3.2.4}%
+\contentsline {chapter}{\numberline {}Kesimpulan}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Repositori Kode Sumber (Resource)}{12}{section.4.1}%

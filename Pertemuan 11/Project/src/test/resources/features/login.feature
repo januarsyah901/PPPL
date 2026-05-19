@@ -1,3 +1,4 @@
+@Tugas
 Feature: Login functionality for SauceDemo
 
   Scenario Outline: Successful login with valid credentials

@@ -1,3 +1,4 @@
+@Latihan
 Feature: Search functionality on Bing
 
   Scenario: Search for a keyword on Bing

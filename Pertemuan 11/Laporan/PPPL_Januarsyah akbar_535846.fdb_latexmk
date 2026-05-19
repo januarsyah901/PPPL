@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1779171323.99608 "/Users/mrfrog/Documents/kuliah/PPPL/Pertemuan 11/Laporan/PPPL_Januarsyah akbar_535846.tex" "PPPL_Januarsyah akbar_535846.pdf" "PPPL_Januarsyah akbar_535846" 1779171325.70317 0
-  "/Users/mrfrog/Documents/kuliah/PPPL/Pertemuan 11/Laporan/PPPL_Januarsyah akbar_535846.tex" 1779171318.04683 22473 0e6fb22baac8821e09d63b4f8179eb69 ""
+["pdflatex"] 1779171497.56097 "/Users/mrfrog/Documents/kuliah/PPPL/Pertemuan 11/Laporan/PPPL_Januarsyah akbar_535846.tex" "PPPL_Januarsyah akbar_535846.pdf" "PPPL_Januarsyah akbar_535846" 1779171499.34813 0
+  "/Users/mrfrog/Documents/kuliah/PPPL/Pertemuan 11/Laporan/PPPL_Januarsyah akbar_535846.tex" 1779171491.13311 22703 29ee668386b2daef941aee9c6a2aa144 ""
   "/usr/local/texlive/2026basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2026basic/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/local/texlive/2026basic/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -79,9 +79,9 @@
   "/usr/local/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1773207390 79187 e3f5941707347d15c1721f52279213a2 ""
   "/usr/local/texlive/2026basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1773207371 2966192 8530c099d507470a4d02f6ac47368067 ""
   "/usr/local/texlive/2026basic/texmf.cnf" 1772405582 628 bbc09d6d38872d53c11bb48dc9b14e88 ""
-  "PPPL_Januarsyah akbar_535846.aux" 1779171325.65935 11464 b4436d800b3c7c9d2973d34b7e3f0ee6 "pdflatex"
-  "PPPL_Januarsyah akbar_535846.tex" 1779171318.04683 22473 0e6fb22baac8821e09d63b4f8179eb69 ""
-  "PPPL_Januarsyah akbar_535846.toc" 1779171325.66173 1630 b03052d8cd01f4b61aec98254134adcd "pdflatex"
+  "PPPL_Januarsyah akbar_535846.aux" 1779171499.29623 12039 8ce44fdd15f5352628ff131c27094576 "pdflatex"
+  "PPPL_Januarsyah akbar_535846.tex" 1779171491.13311 22703 29ee668386b2daef941aee9c6a2aa144 ""
+  "PPPL_Januarsyah akbar_535846.toc" 1779171499.29963 1724 20bbb916559758fceb6118b4c50cd5f1 "pdflatex"
   "lambang ugm.png" 1770676728 2028757 04c6fdad5deebfe4be1d85c1de5bd48d ""
   "screenshot step/Latihan_test_result.png" 1779170993.43794 608149 ecdf7f2b51f4054251611f61d5845a10 ""
   "screenshot step/Tugas_test_result_failure.png" 1779171054.58817 608742 8596525e1b0bcccccf328f9c94fb9239 ""
