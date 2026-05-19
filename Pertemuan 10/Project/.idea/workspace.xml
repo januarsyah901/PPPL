@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="991c1d5c-147c-4c9a-ae76-f84be4c7ce37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/Pertemuan 9.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modul.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Pertemuan 7/Project/Seleniumtest/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Pertemuan 7/Project/Seleniumtest/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Pertemuan 9/Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Pertemuan 9/Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.toc" beforeDir="false" afterPath="$PROJECT_DIR$/../Laporan/PPPL_Januarsyah akbar_535846.toc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,38 +48,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JUnit.LatihanActionsTest (1).executor": "Run",
-    "JUnit.LatihanActionsTest and 1 more.executor": "Run",
-    "JUnit.LatihanActionsTest.executor": "Run",
-    "JUnit.LatihanActionsTest.testDragAndDrop.executor": "Run",
-    "JUnit.LatihanActionsTest.testDragAndDropAtoB.executor": "Run",
-    "JUnit.LoginTest.executor": "Run",
-    "JUnit.TestPage.executor": "Run",
-    "JUnit.TestPage.testBingSearch.executor": "Run",
-    "JUnit.TugasWaitsTest.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/Users/mrfrog/Documents/kuliah/PPPL/Pertemuan 10/Project/src/test/java",
-    "last_opened_file_path": "/Users/mrfrog/Documents/kuliah/PPPL/Pertemuan 9/Project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JUnit.LatihanActionsTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LatihanActionsTest and 1 more.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LatihanActionsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LatihanActionsTest.testDragAndDrop.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LatihanActionsTest.testDragAndDropAtoB.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestPage.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestPage.testBingSearch.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TugasWaitsTest.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/mrfrog/Documents/kuliah/PPPL/Pertemuan 10/Project/src/test/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mrfrog/Documents/kuliah/PPPL/Pertemuan 9/Project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -178,6 +177,7 @@
       <workItem from="1778550378118" duration="272000" />
       <workItem from="1778554343087" duration="1697000" />
       <workItem from="1778565894101" duration="1608000" />
+      <workItem from="1779157883544" duration="36000" />
     </task>
     <servers />
   </component>
